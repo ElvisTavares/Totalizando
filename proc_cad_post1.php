@@ -13,13 +13,15 @@ session_start();
  
 
 $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING);
-$texto = filter_input(INPUT_POST, 'texto', FILTER_SANITIZE_STRING);
+// $texto = filter_input(INPUT_POST, 'texto', FILTER_SANITIZE_STRING);
+// $texto1 = htmlspecialchars($_POST['texto']);
+$texto1 = $_POST['texto'];
 $resumo = filter_input(INPUT_POST, 'resumo', FILTER_SANITIZE_STRING);
 
   	// image file directory
   	$target = "foto/".basename($image);
 
-  	$sql = "INSERT INTO postagem (titulo, resumo, texto, imagem, created) VALUES ('$titulo','$resumo','$texto','$image', NOW())";
+  	$sql = "INSERT INTO postagem (titulo, resumo, texto, imagem, created) VALUES ('$titulo','$resumo','$texto1','$image', NOW())";
   	// execute query
   	mysqli_query($conn, $sql);
 

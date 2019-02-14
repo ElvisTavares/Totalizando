@@ -1,42 +1,29 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-fm">
-						<span class="sr-only">Desplegar / Ocultar Menu</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-				</div>
-				<!-- Inicia Menu -->
-				<div class="collapse navbar-collapse" id="navegacion-fm">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.php">Inicio</a></li>
-						<!-- <li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-								Categorias <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Categoria #1</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Categoria #2</a></li>
-								<li><a href="#">Categoria #3</a></li>
-								<li><a href="#">Categoria #4</a></li>
-							</ul> -->
-						</li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Contacto</a></li>
-					</ul>
+ <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.php">Início</a></li>
+            <li><a href="sobre.php">Sobre</a></li>
+            <li><a href="contato.php">Contato</a></li>
+          </ul>
 
-					<form action="" class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="buscar">
-						</div>
-						<button type="submit" class="btn btn-primary">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</form>
-				</div>
-			</div>
-		</nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+          </ul>
+
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>

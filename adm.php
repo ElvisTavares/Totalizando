@@ -10,7 +10,7 @@
 // 	$_SESSION['msg'] = "Área resrita";
 // 	header("Location: login.php");
 // }
-
+session_cache_expire(15);
 session_start();
 
 if (empty($_SESSION['id'])) {

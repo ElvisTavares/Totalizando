@@ -26,10 +26,10 @@ include_once("cabecalho_int.php");
 		$resultado_post = mysqli_query($conn,$result_post);
 
 		while ($row_post = mysqli_fetch_assoc($resultado_post)) {
-			echo "<img src='foto/". $row_post['imagem']."' ><br>";
-			echo $row_post['titulo']."<br>";
-			echo $row_post['resumo']."<br>";
-			echo $row_post['texto']."<br>";
+			echo "<img class='img' src='foto/". $row_post['imagem']."' ><br>";
+			echo "<h2>".$row_post['titulo']."</h2><br>";
+			echo "<h4>". $row_post['resumo']."</h4><br>";
+			echo "<p>".$row_post['texto']."<p>";
 
 			echo "<a href='edit_post.php?id=".$row_post['id']. "'>Editar</a><br>";
 			echo "<a href='proc_apag_post.php?id=".$row_post['id']."'>Apagar</a><br><br><br><hr>";

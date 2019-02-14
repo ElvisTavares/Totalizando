@@ -4,7 +4,9 @@ include_once("conexao.php");
 
 
 $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING);
-$texto = filter_input(INPUT_POST, 'texto', FILTER_SANITIZE_STRING);
+// $texto = filter_input(INPUT_POST, 'texto', FILTER_SANITIZE_STRING);
+$texto = $_POST['texto']
+htmlspecialchars($texto);
 $resumo = filter_input(INPUT_POST, 'resumo', FILTER_SANITIZE_STRING);
 // $imagem = $_FILES['imagem']['name'];
 // $diretorio = "foto/".basename($imagem);
