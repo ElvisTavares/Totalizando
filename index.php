@@ -17,8 +17,32 @@ include_once("conexao.php");
 								 <?php
 
 
+//Verifica se está sendo passado na URL a página atual, senao é atribuido a pagina 
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+
+
 										$result_post = "SELECT * FROM postagem";
 										$resultado_post = mysqli_query($conn,$result_post);
+
+										//Conta o total de reg
+$total_nome = mysqli_num_rows($resultado_post);
+
+//Seta a quantidade de registros
+$quantidade_pg = 6;
+
+//calcular o número de pagina necessárias para apresentar os cursos
+$num_pagina = ceil($total_nome/$quantidade_pg);
+
+//Calcula o inicio da visualizacao
+$incio = ($quantidade_pg*$pagina)-$quantidade_pg;
+
+//Selecionar os registros a serem apresentado na página
+$result_post = "SELECT * FROM postagem limit $incio, $quantidade_pg";
+$resultado_post = mysqli_query($conn, $result_post);
+$total_post  = mysqli_num_rows($resultado_post);
+
+
 
 										while ($row_post = mysqli_fetch_assoc($resultado_post)) {
 											echo "<a href='#' class='thumb pull-left'>";
@@ -37,11 +61,47 @@ include_once("conexao.php");
 											echo "<div class='read-more'><a href='post.php?id=".$row_post['id']. "'>Leia mais</a></div><br>";
 											echo "<br><br>";
 
+							
+
+
 			
 			
 		}
 
+			//Verificar a pagina anterior e posterior
+				$pagina_anterior = $pagina - 1;
+                $pagina_posterior = $pagina + 1;
 	?>
+
+	 <nav class="text-center">
+				<ul class="pagination">
+					<li>
+						<?php
+						if($pagina_anterior != 0){ ?>
+							<a href="index.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						<?php }else{ ?>
+							<span aria-hidden="true">&laquo;</span>
+					<?php }  ?>
+					</li>
+					<?php 
+					//Apresentar a paginacao
+					for($i = 1; $i < $num_pagina + 1; $i++){ ?>
+						<li><a href="index.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+					<?php } ?>
+					<li>
+						<?php
+						if($pagina_posterior <= $num_pagina){ ?>
+							<a href="index.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Previous">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						<?php }else{ ?>
+							<span aria-hidden="true">&raquo;</span>
+					<?php }  ?>
+					</li>
+				</ul>
+			</nav>
 
 						</div>
 
